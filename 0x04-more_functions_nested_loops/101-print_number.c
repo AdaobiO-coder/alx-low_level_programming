@@ -1,31 +1,23 @@
-#include <stdio.h>
+#include "main.h"
 
 /**
- * main - Finds and prints the largest prime
- *        factor of the number 612852475143.
- *
- * Return: Always 0.
+ * print_number - Print number with putchar function
+ * @n: the number to print
+ * Return: Always 0
  */
-int main(void)
-{
-long prime = 612852475143, div;
 
-while (div < (prime / 2))
+void print_number(int n)
 {
-if ((prime % 2) == 0)
+unsigned int num = n;
+
+if (n < 0)
 {
-prime /= 2;
-continue;
+_putchar('-');
+num = -num;
 }
 
-for (div = 3; div < (prime / 2); div += 2)
-{
-if ((prime % div) == 0)
-prime /= div;
-}
-}
+if ((num / 10) > 0)
+print_number(num / 10);
 
-printf("%ld\n", prime);
-
-return (0);
+_putchar((num % 10) + '0');
 }
